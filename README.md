@@ -1,8 +1,8 @@
 # dry
 
 [![MIT License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/moncho/dryblob/master/LICENSE)
-[![wercker status](https://app.wercker.com/status/66c3ab71a46c0c8841f34a526fc23189/s/master "wercker status")](https://app.wercker.com/project/bykey/66c3ab71a46c0c8841f34a526fc23189)
 [![Build Status](https://travis-ci.org/moncho/dry.svg?branch=master)](https://travis-ci.org/moncho/dry)
+![Docker Build](https://github.com/moncho/dry/workflows/.github/workflows/docker.yml/badge.svg)
 [![Go Report Card](https://goreportcard.com/badge/github.com/moncho/dry)](https://goreportcard.com/report/github.com/moncho/dry)
 [![GoDoc](https://godoc.org/github.com/moncho/dry?status.svg)](https://godoc.org/github.com/moncho/dry)
 [![Coverage Status](https://coveralls.io/repos/github/moncho/dry/badge.svg?branch=master)](https://coveralls.io/github/moncho/dry?branch=master)
@@ -136,10 +136,10 @@ sudo chmod 755 /usr/local/bin/dry
 
 If you dont like to **curl | sh**, binaries are provided.
 
-* **darwin** [386](https://github.com/moncho/dry/releases/download/v0.10-beta.1/dry-darwin-386) / [amd64](https://github.com/moncho/dry/releases/download/v0.10-beta.1/dry-darwin-amd64)
-* **freebsd** [386](https://github.com/moncho/dry/releases/download/v0.10-beta.1/dry-freebsd-386) / [amd64](https://github.com/moncho/dry/releases/download/v0.10-beta.1/dry-freebsd-amd64)
-* **linux** [386](https://github.com/moncho/dry/releases/download/v0.10-beta.1/dry-linux-386) / [amd64](https://github.com/moncho/dry/releases/download/v0.10-beta.1/dry-linux-amd64)
-* **windows** [386](https://github.com/moncho/dry/releases/download/v0.10-beta.1/dry-windows-386) / [amd64](https://github.com/moncho/dry/releases/download/v0.10-beta.1/dry-windows-amd64)
+* **darwin** [386](https://github.com/moncho/dry/releases/download/v0.11.1/dry-darwin-386) / [amd64](https://github.com/moncho/dry/releases/download/v0.11.1/dry-darwin-amd64)
+* **freebsd** [386](https://github.com/moncho/dry/releases/download/v0.11.1/dry-freebsd-386) / [amd64](https://github.com/moncho/dry/releases/download/v0.11.1/dry-freebsd-amd64)
+* **linux** [386](https://github.com/moncho/dry/releases/download/v0.11.1/dry-linux-386) / [amd64](https://github.com/moncho/dry/releases/download/v0.11.1/dry-linux-amd64)
+* **windows** [386](https://github.com/moncho/dry/releases/download/v0.11.1/dry-windows-386) / [amd64](https://github.com/moncho/dry/releases/download/v0.11.1/dry-windows-amd64)
 
 #### Mac OS X / Homebrew
 
@@ -191,3 +191,6 @@ Built on top of:
 * [termui](https://github.com/gizak/termui)
 * [Docker](https://github.com/docker/docker)
 * [Docker CLI](github.com/docker/cli/cli)
+
+## Alternatives
+See [Awesome Docker list](https://github.com/veggiemonk/awesome-docker/blob/master/README.md#terminal) for similar tools to work with Docker.
