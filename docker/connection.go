@@ -3,8 +3,7 @@ package docker
 import (
 	"context"
 	"crypto/tls"
-	"golang.org/x/crypto/ssh"
-	"io/ioutil"
+	"fmt"
 	"net"
 	"net/http"
 	"net/url"
@@ -20,7 +19,7 @@ import (
 	homedir "github.com/mitchellh/go-homedir"
 	drytls "github.com/moncho/dry/tls"
 	"github.com/moncho/dry/version"
-	"github.com/pkg/errors"
+	"golang.org/x/crypto/ssh"
 )
 
 const (
@@ -92,12 +91,12 @@ func newHTTPClient(host string, config *tls.Config) (*http.Client, error) {
 	}, nil
 }
 
-//ConnectToDaemon connects to a Docker daemon using the given properties.
+// ConnectToDaemon connects to a Docker daemon using the given properties.
 func ConnectToDaemon(env Env) (*DockerDaemon, error) {
 
 	host, err := getServerHost(env)
 	if err != nil {
-		return nil, errors.Wrap(err, "Invalid Host")
+		return nil, fmt.Errorf("invalid host: %w", err)
 	}
 	var options *drytls.Options
 	//If a path to certificates is given use the path to read certificates from
@@ -152,7 +151,7 @@ func ConnectToDaemon(env Env) (*DockerDaemon, error) {
 
 	client, err := client.NewClientWithOpts(opt...)
 	if err != nil {
-		return nil, errors.Wrap(err, "Error creating client")
+		return nil, fmt.Errorf("create Docker client: %w", err)
 	}
 	return connect(client, env)
 
@@ -180,7 +179,7 @@ func configureSshTransport(host string, user string, pass string) (*ssh.ClientCo
 	}
 
 	if !foundIdentityFile {
-		pkFilenames, err := ioutil.ReadDir(dirname + "/.ssh/")
+		pkFilenames, err := os.ReadDir(dirname + "/.ssh/")
 		if err != nil {
 			return nil, err
 		}
@@ -206,7 +205,7 @@ func configureSshTransport(host string, user string, pass string) (*ssh.ClientCo
 }
 
 func readPk(pkFilename string, auth []ssh.AuthMethod, dirname string) ([]ssh.AuthMethod, error) {
-	pk, err := ioutil.ReadFile(dirname + pkFilename)
+	pk, err := os.ReadFile(dirname + pkFilename)
 	if err != nil {
 		return nil, nil
 	}
